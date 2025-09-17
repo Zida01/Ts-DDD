@@ -1,5 +1,6 @@
 import express from "express";
- import { ENV } from "./shared/config/env"
+import { ENV } from "./shared/config/env"
+ import authRouter from "./auth/auth.routes"
 
 import { errorHandler } from "./shared/errorhandler/globalerrorHandler";
 
@@ -29,7 +30,7 @@ app.get("/welcome", (req, res) => {
 
 
 // add the routes
-//app.use('/v1/api/auth', authRouter)
+app.use('/v1/api/auth', authRouter)
 
 // Global error handler (last middleware)
 app.use(errorHandler);

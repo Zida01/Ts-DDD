@@ -4,7 +4,7 @@ import { ENV } from "./shared/config/env"
 
 const startServer = async () => {
   try {
-    //await connectDB();
+    await connectDB();
 
     const server = app.listen(ENV.PORT, () => {
       console.log(`🚀 Server running in ${ENV.NODE_ENV} on port ${ENV.PORT}`);
