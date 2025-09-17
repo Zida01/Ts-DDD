@@ -1,7 +1,7 @@
 import { Schema, model, Document } from "mongoose";
 import { Role } from "../../shared/role.enum";
 
-export interface UserDocument extends Document {
+export interface IUserDocument extends Document {
   email: string;
   password: String;
   roles: Role[];
@@ -10,7 +10,7 @@ export interface UserDocument extends Document {
   isActive: boolean;
 }
 
-const userSchema = new Schema<UserDocument>({
+const userSchema = new Schema<IUserDocument>({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   roles: { type: [String], enum: Role, default: [Role.USER] },
@@ -21,6 +21,6 @@ const userSchema = new Schema<UserDocument>({
     { timestamps: true },
 
 );
- export const UserModel =  model<UserDocument>("User", userSchema)
+ export const UserModel =  model<IUserDocument>("User", userSchema)
 
  
