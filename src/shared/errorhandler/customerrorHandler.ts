@@ -54,7 +54,7 @@ export class databaseError extends AppError{
 
   export class CrudError extends AppError{
     constructor(message= "Unable to perform crud function "){
-    super(message, 503 , false)
+    super(message, 503)
     }
    
 

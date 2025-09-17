@@ -8,7 +8,7 @@ export const errorHandler=(
     res:Response,
     next:NextFunction
 )=>{
-    console.error("Error Caught:", err)
+    //console.error("Error Caught:", err)
 
     if (err instanceof AppError){
         if(ENV.NODE_ENV === "development"){

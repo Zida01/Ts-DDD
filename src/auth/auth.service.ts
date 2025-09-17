@@ -14,17 +14,19 @@ export class AuthService {
         const hashedPassword = " emma"
         const findUser= await this.authRepository.findByEmail(data.email)
          if(findUser){
-            throw new ConflictError(" email already exit")
+            throw new ConflictError("email already exit")
          }
          const newUser= await this.authRepository.RegisterUser({
-            email:data.password,
+            email:data.email,
             password:hashedPassword
          })
           return newUser   
         
     } catch (error:any) {
-        throw new  CrudError("error occured RegisterUser Functions")
-
+       if (error instanceof ConflictError) {
+         throw error;
+       }
+       throw new CrudError(`Error occurred in RegisterUser: ${error.message}`);
         
     }
 
