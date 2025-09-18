@@ -12,10 +12,10 @@ export class AuthService {
     try {
 
         const hashedPassword = " emma"
-        const findUser= await this.authRepository.findByEmail(data.email)
-         if(findUser){
-            throw new ConflictError("email already exit")
-         }
+        //const findUser= await this.authRepository.findByEmail(data.email)
+        // if(findUser){
+          //  throw new ConflictError("email already exit")
+         //}
          const newUser= await this.authRepository.RegisterUser({
             email:data.email,
             password:hashedPassword

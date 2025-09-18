@@ -20,7 +20,7 @@ export class AuthRepository {
       return newUser
 
     } catch (error : any) {
-        throw new Error(`Error creating user: ${error.message}`);
+        throw new Error(`Error creating user1: ${error.message}`);
     }
   }
 
