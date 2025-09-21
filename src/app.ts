@@ -43,6 +43,7 @@ app.use((req, res, next) => {
 app.use((err: any, req: any, res: any, next: any) => {
   res.status(err.status || 404).json({
     message: err.message,
+    data: " routes not found pls read the documentation",
     url: req.originalUrl,
     method: req.method,
     timestamp: new Date().toISOString(),
